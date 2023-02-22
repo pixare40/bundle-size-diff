@@ -48,23 +48,22 @@ const checkPaths = async () => {
 const getStatsDiff = (baseAssets, prAssets) => {
 	let baseTotal,
 		prTotal = 0;
-	let stats = {};
 	for (let i = 0; i < baseAssets.length; ++i) {
-		if (baseAssets[i] && baseAssets.size) baseTotal += baseAssets[i].size;
+		if (!!baseAssets[i] && baseAssets[i].size > 0)
+			baseTotal += baseAssets[i].size;
 	}
 	for (let i = 0; i < prAssets.length; ++i) {
-		if (prAssets[i] && prAssets.size) prTotal += prAssets[i].size;
+		if (!!prAssets[i] && prAssets[i].size > 0) prTotal += prAssets[i].size;
 	}
 
-	stats = {
+	return {
 		total: {
 			oldSize: baseTotal,
 			newSize: prTotal,
 			diffPercentage: 0,
+			diff: 0,
 		},
 	};
-
-	return stats;
 };
 
 const generateData = (assets) => {
