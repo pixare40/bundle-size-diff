@@ -39,6 +39,7 @@ const checkPaths = async () => {
 };
 
 const getStatsDiff = (baseAssets, prAssets) => {
+	core.info("Starting stats diff");
 	let baseTotal,
 		prTotal = 0;
 	for (let i = 0; i < baseAssets.length; ++i) {
