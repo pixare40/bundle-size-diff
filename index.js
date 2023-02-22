@@ -63,7 +63,7 @@ const getStatsDiff = (baseAssets, prAssets) => {
 const generateData = (assets) => {
 	const stats = getStatsDiff(assets.base, assets.pr);
 
-	if (!stats || !stats.total) {
+	if (!stats || !stats.total || !stats.total.oldSize) {
 		throw new Error(
 			`Something went wrong with stats conversion, probably files are corrupted.`
 		);
