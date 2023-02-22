@@ -39,7 +39,7 @@ const checkPaths = async () => {
 };
 
 const getStatsDiff = (baseAssets, prAssets) => {
-	core.info("Starting stats diff");
+	core.debug("Starting stats diff");
 	let baseTotal,
 		prTotal = 0;
 	for (let i = 0; i < baseAssets.length; ++i) {
@@ -69,8 +69,8 @@ const generateData = (assets) => {
 		);
 	}
 
-	core.info("stats: old " + stats.total.oldSize);
-	core.info("stats.new: " + stats.total.newSize);
+	core.debug("stats: old " + stats.total.oldSize);
+	core.debug("stats.new: " + stats.total.newSize);
 
 	core.setOutput("base_file_size", stats.total.oldSize);
 	core.setOutput("base_file_string", fileSize(stats.total.oldSize));
