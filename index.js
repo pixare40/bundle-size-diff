@@ -68,6 +68,9 @@ const generateData = (assets) => {
 		);
 	}
 
+	core.info("stats: old " + stats.total.oldSize);
+	core.info("stats.new: " + stats.total.newSize);
+
 	core.setOutput("base_file_size", stats.total.oldSize);
 	core.setOutput("base_file_string", fileSize(stats.total.oldSize));
 	core.setOutput("pr_file_size", stats.total.newSize);
